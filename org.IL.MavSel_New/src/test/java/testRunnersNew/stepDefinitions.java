@@ -64,6 +64,11 @@ public class stepDefinitions {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
+		else if(browser.toUpperCase().contains("IE")) {
+			WebDriverManager.iedriver().setup();
+			driver = new InternetExplorerDriver();
+		}
+		
 		
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
