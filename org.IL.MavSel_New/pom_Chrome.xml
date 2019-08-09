@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.IL.MavSel_New</groupId>
+  <artifactId>org.IL.MavSel_New</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>MavSel_New</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<browser>Firefox</browser>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm-deps</artifactId>
+			<version>1.0.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+		    <groupId>io.github.bonigarcia</groupId>
+		    <artifactId>webdrivermanager</artifactId>
+		    <version>3.6.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+		<dependency>
+		    <groupId>net.masterthought</groupId>
+		    <artifactId>cucumber-reporting</artifactId>
+		    <version>4.8.0</version>
+		</dependency>
+		<dependency>
+  <groupId>org.apache.maven</groupId>
+  <artifactId>maven-model</artifactId>
+  <version>3.3.9</version>
+</dependency>
+	</dependencies> 
+ <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+      <source>11</source>
+      <target>11</target>
+    </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <includes> <include>**/Runner.java</include></includes>
+          <systemProperties>
+		     <property>
+		        <name>browser</name>
+		        <value>firefox</value>
+		     </property>
+		   </systemProperties>
+		      <properties> 
+    			<browser>firefox</browser> 
+  			</properties>
+        </configuration>
+        
+        
+      </plugin>
+      
+      <plugin>
+		    <groupId>net.masterthought</groupId>
+		    <artifactId>cucumber-reporting</artifactId>
+		    <version>4.8.0</version>
+		    <executions>
+			    <execution>
+				    <id>execute</id>
+				    <phase>verify</phase>
+				    <goals>
+				    	<goal>generate</goal>
+				    </goals>
+				    
+				    <configuration>
+		    			<outputDirectory>target</outputDirectory>
+		    			<cucumberOutput>target</cucumberOutput>
+		    		</configuration>
+			    </execution>			    
+		    </executions>
+		</plugin>
+    </plugins>
+
+  </build>
+  
+
+</project>
